@@ -46,7 +46,7 @@ function setup(){
   osc.amp(v)
   });
 
-  dial.on('change',function(v) {
+  freq.on('change',function(v) {
   console.log(v)
   osc.freq(v)
   });
