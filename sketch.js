@@ -7,6 +7,7 @@ let gain1 = new Nexus.Dial("#gain1",{
   "min": 0,
   "max": 1
 });
+
 let freq1 = new Nexus.Dial("#frequency1",{
   "interaction": "vertical",
   "min": 100,
@@ -21,6 +22,7 @@ let gain2 = new Nexus.Dial("#gain2",{
   "min": 0,
   "max": 1
 });
+
 let freq2 = new Nexus.Dial("#frequency2",{
   "interaction": "vertical",
   "min": 100,
@@ -37,58 +39,58 @@ function setup(){
   // createCanvas(window.innerWidth, window.innerHeight);
   // background(0);
 
-    osc = new p5.Oscillator();
-    osc.setType("sine");
-    osc.freq(100);
-    osc.amp(0);
+  osc1 = new p5.Oscillator();
+  osc1.setType("sine");
+  osc1.freq(100);
+  osc1.amp(0);
 
 
 
   // Listen for interface events
   power1.on('change',function(v) {
   // console.log(v)
-  if(v == true){
-    osc.start()
-  }
-  if(v == false){
-    osc.stop()
-  }
+    if(v == true){
+      osc1.start()
+    }
+    if(v == false){
+      osc1.stop()
+    }
   });
 
   gain1.on('change',function(v) {
-  // console.log(v)
-  osc.amp(v)
+    // console.log(v)
+    osc1.amp(v)
   });
 
   freq1.on('change',function(v) {
-  // console.log(v)
-  osc.freq(v)
+    // console.log(v)
+    osc1.freq(v)
   });
 
 
-  osc = new p5.Oscillator();
-  osc.setType("square");
-  osc.freq(100);
-  osc.amp(0);
+  osc2 = new p5.Oscillator();
+  osc2.setType("square");
+  osc2.freq(100);
+  osc2.amp(0);
 
   power2.on('change',function(v) {
   // console.log(v)
-  if(v == true){
-    osc.start()
-  }
-  if(v == false){
-    osc.stop()
-  }
+    if(v == true){
+      osc2.start()
+    }
+    if(v == false){
+      osc2.stop()
+    }
   });
 
   gain2.on('change',function(v) {
   // console.log(v)
-  osc.amp(v)
+    osc2.amp(v)
   });
 
   freq2.on('change',function(v) {
-  // console.log(v)
-  osc.freq(v)
+    // console.log(v)
+    osc2.freq(v)
   });
 }
 
