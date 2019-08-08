@@ -1,29 +1,57 @@
 
+// let synth = new Nexus.Rack("#synth")
 
+let power = new Nexus.Toggle("#power");
+let gain = new Nexus.Dial("#gain",{
+  "size": [75,75],
+  "interaction": "vertical",
+  "min": 0,
+  "max": 1
+});
+let freq = new Nexus.Dial("#frequency",{
+  "interaction": "vertical",
+  "min": 100,
+  "max": 10000
+})
+// let power2 = new Nexus.Toggle("#power2");
+// let gain2 = new Nexus.Slider("#gain2");
+
+let osc;
 
 function setup(){
 
-  // createCanvas(200, 500)
-  // fill(0);
+  // createCanvas(window.innerWidth, window.innerHeight);
+  // background(0);
 
-  // Create interfaces THIS HAD TO BE IN THE INDEX
-  // var power = new Nexus.Toggle("#power");
-  // var gain = new Nexus.Slider("#gain");
+    osc = new p5.Oscillator();
+    osc.setType("sine");
+    osc.freq(100);
+    osc.amp(0);
 
-  // Create a sound source
-  var volume = new Tone.Volume(-Infinity).toMaster();
-  var synth = new Tone.Oscillator(220,"sine").connect(volume);
+
 
   // Listen for interface events
   power.on('change',function(v) {
-  	v ? synth.start() : synth.stop();
+  // console.log(v)
+  if(v == true){
+    osc.start()
+  }
+  if(v == false){
+    osc.stop()
+  }
   });
 
   gain.on('change',function(v) {
-  	volume.volume.rampTo(v,.1)
+  // console.log(v)
+  osc.amp(v)
   });
-  gain.min = -100;
-  gain.max = 0;
-  gain.value = -30;
 
+  dial.on('change',function(v) {
+  console.log(v)
+  osc.freq(v)
+  });
 }
+
+  // function draw(){
+  //   print(mouseX, mouseY);
+  // }
