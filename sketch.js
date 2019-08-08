@@ -1,14 +1,14 @@
 
 // let synth = new Nexus.Rack("#synth")
 
-let power = new Nexus.Toggle("#power");
-let gain = new Nexus.Dial("#gain",{
+let power = new Nexus.Toggle("#power1");
+let gain = new Nexus.Dial("#gain1",{
   "size": [75,75],
   "interaction": "vertical",
   "min": 0,
   "max": 1
 });
-let freq = new Nexus.Dial("#frequency",{
+let freq = new Nexus.Dial("#frequency1",{
   "interaction": "vertical",
   "min": 100,
   "max": 10000

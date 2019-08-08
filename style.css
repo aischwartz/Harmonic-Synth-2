@@ -1,0 +1,18 @@
+
+#power1{
+  position:relative;
+  margin-top: 10px;
+  margin-left: 0px;
+}
+
+#gain1{
+  position:relative;
+  margin-top: 0px;
+  margin-left: 0px;
+}
+
+#frequency1{
+  position: absolute;
+  margin-top: 105px;
+  margin-left: 0px;
+  }
