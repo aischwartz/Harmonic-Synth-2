@@ -1,3 +1,4 @@
+/* display: inline-block; */
 
 #osc1{
   margin-top: 20px;
@@ -10,7 +11,7 @@
 }
 
 #osc3{
-  margin-top: 30px;
+  margin-top: 50px;
   margin-left: 30px;
 }
 
@@ -20,26 +21,44 @@ h1{
   font-size: 1.5em;
   color: #fff;
   font-family: monospace;
-  margin-top: 45px;
+  margin-top: 50px;
   margin-bottom: -5px;
 }
-/*#power1{
-  position:relative;
-  top: 10px;
-  margin-left: 0px;
+
+#canvas1 {
+    width: 300px;
+    height: 200px;
+    background-color: white;
+    margin-left: 150px;
+    margin-top: -180px;
+}
+
+#canvas2 {
+    width: 300px;
+    height: 200px;
+    background-color: white;
+    margin-left: 150px;
+    margin-top: -200px;
+}
+
+#canvas3 {
+    width: 300px;
+    height: 200px;
+    background-color: white;
+    margin-left: 150px;
+    margin-top: -200px;
+}
+#power1{
+
 }
 
 #gain1{
-  position:relative;
-  margin-top: 100px;
-  margin-left: 0px;
+
 }
 
 #frequency1{
-  position: absolute;
-  margin-top: 150px;
-  margin-left: 0px;
-  }*/
+
+}
 
 
 

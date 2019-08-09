@@ -75,9 +75,6 @@ let osc3;
 
 function setup(){
 
-  // createCanvas(window.innerWidth, window.innerHeight);
-  // background(0);
-
 // OSCILLATOR 1
   osc1 = new p5.Oscillator();
   osc1.setType("sine");
@@ -158,8 +155,3 @@ function setup(){
     osc3.freq(v)
   });
 }
-
-
-  // function draw(){
-  //   print(mouseX, mouseY);
-  // }
