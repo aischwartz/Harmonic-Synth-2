@@ -1,18 +1,47 @@
 
-#power1{
+#osc1{
+  margin-top: 20px;
+}
+
+/*#power1{
   position:relative;
-  margin-top: 10px;
+  top: 10px;
   margin-left: 0px;
 }
 
 #gain1{
   position:relative;
-  margin-top: 0px;
+  margin-top: 100px;
   margin-left: 0px;
 }
 
 #frequency1{
   position: absolute;
-  margin-top: 105px;
+  margin-top: 150px;
   margin-left: 0px;
-  }
+  }*/
+
+
+
+/*#osc2{
+  margin-top: 250px;
+}*/
+/* osc2 */
+/*
+#power2{
+  position:relative;
+  margin-top: 200px;
+  margin-left: 0px;
+}
+
+#gain2{
+  position:relative;
+  margin-top: 300px;
+  margin-left: 0px;
+}
+
+#frequency2{
+  position: absolute;
+  margin-top: 300px;
+  margin-left: 0px;
+  } */
