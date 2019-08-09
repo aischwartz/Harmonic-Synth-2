@@ -39,12 +39,11 @@ function setup(){
   // createCanvas(window.innerWidth, window.innerHeight);
   // background(0);
 
+// OSCILLATOR 1
   osc1 = new p5.Oscillator();
   osc1.setType("sine");
   osc1.freq(100);
   osc1.amp(0);
-
-
 
   // Listen for interface events
   power1.on('change',function(v) {
@@ -68,6 +67,7 @@ function setup(){
   });
 
 
+// OSCILLATOR 2
   osc2 = new p5.Oscillator();
   osc2.setType("square");
   osc2.freq(100);
