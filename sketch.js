@@ -12,7 +12,7 @@ let gain1 = new Nexus.Dial("#gain1",{
 let freq1 = new Nexus.Dial("#frequency1",{
   "interaction": "vertical",
   "min": 100,
-  "max": 10000
+  "max": 15000
 })
 power1.colorize("accent","#ff0")
 power1.colorize("fill","#555")
@@ -33,7 +33,7 @@ let gain2 = new Nexus.Dial("#gain2",{
 let freq2 = new Nexus.Dial("#frequency2",{
   "interaction": "vertical",
   "min": 100,
-  "max": 10000
+  "max": 15000
 })
 power2.colorize("accent","#11f01c")
 power2.colorize("fill","#555")
@@ -54,7 +54,7 @@ let gain3 = new Nexus.Dial("#gain3",{
 let freq3 = new Nexus.Dial("#frequency3",{
   "interaction": "vertical",
   "min": 100,
-  "max": 10000
+  "max": 15000
 })
 
 power3.colorize("accent","#f11")
@@ -64,16 +64,21 @@ gain3.colorize("fill","#555")
 freq3.colorize("accent","#f11")
 freq3.colorize("fill","#555")
 
-document.body.style.backgroundColor = "#000";
+// document.style.backgroundColor = "#000";
 
-
+fft = new p5.FFT();
 
 // let osc;
 let osc1;
 let osc2;
 let osc3;
+let bandWidth;
 
 function setup(){
+
+  createCanvas(1000, 200);
+  // background(255, 0, 0);
+
 
 // OSCILLATOR 1
   osc1 = new p5.Oscillator();
@@ -105,7 +110,7 @@ function setup(){
 
 // OSCILLATOR 2
   osc2 = new p5.Oscillator();
-  osc2.setType("square");
+  osc2.setType("sine");
   osc2.freq(440);
   osc2.amp(0);
 
@@ -131,7 +136,7 @@ function setup(){
 
 // OSCILLATOR 2
   osc3 = new p5.Oscillator();
-  osc3.setType("triangle");
+  osc3.setType("sine");
   osc3.freq(880);
   osc3.amp(0);
 
@@ -154,4 +159,21 @@ function setup(){
     // console.log(v)
     osc3.freq(v)
   });
+
+  fft = new p5.FFT(0.8, 1024); //(smoothing, number of bands)
+  let bandWidth = width;  // so that the bands take up the width of the canvas
+
+}
+
+function draw(){
+
+  background(85, 85, 85); //background of the canvas needs to be here in draw
+  let spectrum = fft.analyze(); //this looks at frequency
+  stroke(255, 0, 255); //this will make the spectrum purple
+  // console.log(spectrum);  //this is working
+    for (let i = 0; i< spectrum.length; i++){ // i will loop from 0 to the length of the array [i]
+      let amp = spectrum[i]; //this takes the amplitude numbers and puts them into the array [i]
+      let y = map(amp, 0, 255, 200, 25);
+      line(i, height, i, y);
+    }
 }
