@@ -69,7 +69,7 @@ let gain4 = new Nexus.Dial("#gain4",{
   "max": 1
 });
 
-let noise4 = new Nexus.Dial("noise",{
+let noise4 = new Nexus.Dial("lowpass4",{
   "interaction": "vertical",
   'size': [60,60]
 })
@@ -190,9 +190,8 @@ function setup(){
     osc4 = new p5.Noise();
     osc4.setType("pink");
     filter4 = new p5.LowPass();
-    // noise.connect(filter4);    THIS IS KILLING THE NOISE
+    // noise.connect(filter4);
 
-    // osc1.freq(220);
     osc4.amp(0);
 
     // Listen for interface events
@@ -219,6 +218,7 @@ function setup(){
       map(v,0,1,100,15000);
       console.log(v)
     });
+
 
   fft = new p5.FFT(0.8, 1024); //(smoothing, number of bands)
   let bandWidth = width;  // so that the bands take up the width of the canvas
