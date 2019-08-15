@@ -3,7 +3,7 @@
 "Osc1"
 let power1 = new Nexus.Toggle("#power1");
 let gain1 = new Nexus.Dial("#gain1",{
-  "size": [75,75],
+  "size": [60,60],
   "interaction": "vertical",
   "min": 0,
   "max": 1
@@ -12,7 +12,8 @@ let gain1 = new Nexus.Dial("#gain1",{
 let freq1 = new Nexus.Dial("#frequency1",{
   "interaction": "vertical",
   "min": 100,
-  "max": 15000
+  "max": 15000,
+  'size': [60,60]
 })
 power1.colorize("accent","#ff0")
 power1.colorize("fill","#555")
@@ -24,7 +25,7 @@ freq1.colorize("fill","#555")
 "Osc2"
 let power2 = new Nexus.Toggle("#power2");
 let gain2 = new Nexus.Dial("#gain2",{
-  "size": [75,75],
+  "size": [60,60],
   "interaction": "vertical",
   "min": 0,
   "max": 1
@@ -33,7 +34,8 @@ let gain2 = new Nexus.Dial("#gain2",{
 let freq2 = new Nexus.Dial("#frequency2",{
   "interaction": "vertical",
   "min": 100,
-  "max": 15000
+  "max": 15000,
+  'size': [60,60]
 })
 power2.colorize("accent","#11f01c")
 power2.colorize("fill","#555")
@@ -45,7 +47,7 @@ freq2.colorize("fill","#555")
 "Osc3"
 let power3 = new Nexus.Toggle("#power3");
 let gain3 = new Nexus.Dial("#gain3",{
-  "size": [75,75],
+  "size": [60,60],
   "interaction": "vertical",
   "min": 0,
   "max": 1
@@ -54,7 +56,22 @@ let gain3 = new Nexus.Dial("#gain3",{
 let freq3 = new Nexus.Dial("#frequency3",{
   "interaction": "vertical",
   "min": 100,
-  "max": 15000
+  "max": 15000,
+  'size': [60,60]
+})
+
+"Osc4"
+let power4 = new Nexus.Toggle("#power4");
+let gain4 = new Nexus.Dial("#gain4",{
+  "size": [60,60],
+  "interaction": "vertical",
+  "min": 0,
+  "max": 1
+});
+
+let noise4 = new Nexus.Dial("noise",{
+  "interaction": "vertical",
+  'size': [60,60]
 })
 
 power3.colorize("accent","#f11")
@@ -68,15 +85,23 @@ freq3.colorize("fill","#555")
 
 fft = new p5.FFT();
 
+// let piano = new Nexus.Piano("keyboard" ,{
+//     'size': [500, 125],
+//     'mode': 'toggle',
+//     'lowNote': 24,
+//     'highNote': 60
+// })
+
 // let osc;
 let osc1;
 let osc2;
 let osc3;
+let osc4;
 let bandWidth;
 
 function setup(){
 
-  createCanvas(1000, 200);
+  createCanvas(640, 200);
   // background(255, 0, 0);
 
 
@@ -134,7 +159,7 @@ function setup(){
     osc2.freq(v)
   });
 
-// OSCILLATOR 2
+// OSCILLATOR 3
   osc3 = new p5.Oscillator();
   osc3.setType("sine");
   osc3.freq(880);
@@ -159,6 +184,41 @@ function setup(){
     // console.log(v)
     osc3.freq(v)
   });
+
+
+  // OSCILLATOR 4
+    osc4 = new p5.Noise();
+    osc4.setType("pink");
+    filter4 = new p5.LowPass();
+    // noise.connect(filter4);    THIS IS KILLING THE NOISE
+
+    // osc1.freq(220);
+    osc4.amp(0);
+
+    // Listen for interface events
+    power4.on('change',function(v) {
+    // console.log(v)
+      if(v == true){
+        osc4.start()
+      }
+      if(v == false){
+        osc4.stop()
+      }
+    });
+
+    gain4.on('change',function(v) {
+      // console.log(v)
+      osc4.amp(v)
+    });
+
+    // freq4.on('change',function(v) {
+      // console.log(v)
+      // osc4.freq(v)
+
+    noise4.on('change',function(v) {
+      map(v,0,1,100,15000);
+      console.log(v)
+    });
 
   fft = new p5.FFT(0.8, 1024); //(smoothing, number of bands)
   let bandWidth = width;  // so that the bands take up the width of the canvas

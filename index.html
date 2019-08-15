@@ -15,27 +15,48 @@
 
   <body>
      <!-- <font color="red">This is some text!</font> -->
-  <h1> Oscillator 1 </h1>
-    <div id="osc1">
-      <div nexus-ui="toggle" id="power1"></div>
-      <div nexus-ui="dial" id="gain1"></div>
-      <div nexus-ui="dial" id="frequency1"></div>
-    </div>
-    <!-- <canvas id="canvas1"></canvas> -->
+  <div id="AllOscillators">
+    <h1> Oscillator 1 </h1>
+      <div id="osc1">
+        <h2> On/Off </h2>
+        <div nexus-ui="toggle" id="power1"></div>
+        <h2> Gain </h2>
+        <div nexus-ui="dial" id="gain1"></div>
+        <h2> Frequency </h2>
+        <div nexus-ui="dial" id="frequency1"></div>
+      </div>
+      <!-- <canvas id="canvas1"></canvas> -->
 
-    <h1> Oscillator 2 </h1>
-    <div id="osc2">
-      <div nexus-ui="toggle" id="power2"></div>
-      <div nexus-ui="dial" id="gain2"></div>
-      <div nexus-ui="dial" id="frequency2"></div>
-    </div>
-    <!-- <canvas id="canvas2"></canvas> -->
+      <h1> Oscillator 2 </h1>
+      <div id="osc2">
+        <h2> On/Off </h2>
+        <div nexus-ui="toggle" id="power2"></div>
+        <h2> Gain </h2>
+        <div nexus-ui="dial" id="gain2"></div>
+        <h2> Frequency </h2>
+        <div nexus-ui="dial" id="frequency2"></div>
+      </div>
+      <!-- <canvas id="canvas2"></canvas> -->
 
-    <h1> Oscillator 3 </h1>
-    <div id="osc3">
-      <div nexus-ui="toggle" id="power3"></div>
-      <div nexus-ui="dial" id="gain3"></div>
-      <div nexus-ui="dial" id="frequency3"></div>
+      <h1> Oscillator 3 </h1>
+      <div id="osc3">
+        <h2> On/Off </h2>
+        <div nexus-ui="toggle" id="power3"></div>
+        <h2> Gain </h2>
+        <div nexus-ui="dial" id="gain3"></div>
+        <h2> Frequency </h2>
+        <div nexus-ui="dial" id="frequency3"></div>
+      </div>
+
+      <h1> Oscillator 4 </h1>
+        <div id="osc4">
+          <h2> On/Off </h2>
+          <div nexus-ui="toggle" id="power4"></div>
+          <h2> Gain </h2>
+          <div nexus-ui="dial" id="gain4"></div>
+          <h2> Low Pass Filter </h2>
+          <div nexus-ui="dial" id="noise"></div>
+        </div>
     </div>
     <!-- <canvas id="canvas3"></canvas> -->
 
@@ -57,13 +78,11 @@
       <span id="power1"></span>
       <span id="power2"></span>
       <span id="power3"></span>
+      <span id="power4"></span>
 
-
+      <!-- <canvas></canvas> -->
   </body>
 
 
   <script src="sketch.js" type="text/javascript"></script>
-</html>
-
-
 </html>
