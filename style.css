@@ -1,39 +1,27 @@
-/* display: inline-block; */
-
-/* document { backgoundColor: black; } */
-
-
-#AllOscillators{
-  float:left;
-  margin-left: 30px;
-}
 
 #osc1{
   float: left;
   margin-top: 20px;
-  margin-left: 30px;
+  margin-left: 57px;
 }
 
 #osc2{
-  float: inherit;
-
-  margin-top: 30px;
-  margin-left: 30px;
+  float: left;
+  margin-top: 20px;
+  margin-left: 90px;
 }
 
 #osc3{
-  float: none;
-  margin-top: 50px;
-  margin-left: 30px;
+  float: left;
+  margin-top: 20px;
+  margin-left: 90px;
 }
 
 #osc4{
-  float: none;
-  margin-top: 50px;
-  margin-left: 30px;
+  float: left;
+  margin-top: 20px;
+  margin-left: 90px;
 }
-
-
 
 
 h1{
@@ -41,79 +29,52 @@ h1{
   color: 0,0,0;
   font-family: monospace;
   margin-top: 50px;
+  margin-left: -35px;
   font-weight:bold;
-
+  text-decoration: underline;
+  /* text-decoration-color: red; */
+}
+#text1{
+  text-decoration-color:#ff0;
+}
+#text2{
+  text-decoration-color:#11f01c;
+}
+#text3{
+  text-decoration-color:red;
+}
+#text4{
+  text-decoration-color:blue;
 }
 
 h2{
   font-family: monospace;
   font-size: 1.3em;
-  margin-top: 10px;
+  margin-top: 40px;
 }
 canvas{
-  float:right;
-  margin-top: 100px;
+  margin-top: 50px;
   margin-right: 200px;
-
-
 }
 
-/* #canvas1 {
-    width: 300px;
-    height: 200px;
-    background-color: white;
-    margin-left: 150px;
-    margin-top: -180px;
+#switch{
+  margin-left: 11px;
 }
-
-#canvas2 {
-    width: 300px;
-    height: 200px;
-    background-color: white;
-    margin-left: 150px;
-    margin-top: -200px;
+#gain{
+  margin-left: 19px;
 }
-
-#canvas3 {
-    width: 300px;
-    height: 200px;
-    background-color: white;
-    margin-left: 150px;
-    margin-top: -200px;
-} */
-#power1{
-
+#freqknob{
+  margin-left: -4px
 }
-
-#gain1{
-
+#lpf{
+  margin-left:-28px;
 }
-
-#frequency1{
-
+#power1,#power2,#power3,#power4{
+  margin-left:21px;
 }
-
-
-
-/*#osc2{
-  margin-top: 250px;
-}*/
-/* osc2 */
-/*
-#power2{
-  position:relative;
-  margin-top: 200px;
-  margin-left: 0px;
+#gain1,#gain2,#gain3,#gain4{
+  margin-left: 10px;
 }
-
-#gain2{
-  position:relative;
-  margin-top: 300px;
-  margin-left: 0px;
+#frequency1,#frequency2,#frequency3,#lowpass4{
+  margin-left: 10px;
 }
-
-#frequency2{
-  position: absolute;
-  margin-top: 300px;
-  margin-left: 0px;
-  } */

@@ -6,13 +6,13 @@ let gain1 = new Nexus.Dial("#gain1",{
   "size": [60,60],
   "interaction": "vertical",
   "min": 0,
-  "max": 1
+  "max": 0.05
 });
 
 let freq1 = new Nexus.Dial("#frequency1",{
   "interaction": "vertical",
-  "min": 100,
-  "max": 15000,
+  "min": 20,
+  "max": 20000,
   'size': [60,60]
 })
 power1.colorize("accent","#ff0")
@@ -28,13 +28,13 @@ let gain2 = new Nexus.Dial("#gain2",{
   "size": [60,60],
   "interaction": "vertical",
   "min": 0,
-  "max": 1
+  "max": 0.05
 });
 
 let freq2 = new Nexus.Dial("#frequency2",{
   "interaction": "vertical",
-  "min": 100,
-  "max": 15000,
+  "min": 20,
+  "max": 20000,
   'size': [60,60]
 })
 power2.colorize("accent","#11f01c")
@@ -50,15 +50,23 @@ let gain3 = new Nexus.Dial("#gain3",{
   "size": [60,60],
   "interaction": "vertical",
   "min": 0,
-  "max": 1
+  "max": 0.05
 });
 
 let freq3 = new Nexus.Dial("#frequency3",{
   "interaction": "vertical",
-  "min": 100,
-  "max": 15000,
+  "min": 20,
+  "max": 20000,
   'size': [60,60]
 })
+
+power3.colorize("accent","#f11")
+power3.colorize("fill","#555")
+gain3.colorize("accent","#f11")
+gain3.colorize("fill","#555")
+freq3.colorize("accent","#f11")
+freq3.colorize("fill","#555")
+
 
 "Osc4"
 let power4 = new Nexus.Toggle("#power4");
@@ -69,17 +77,20 @@ let gain4 = new Nexus.Dial("#gain4",{
   "max": 1
 });
 
-let noise4 = new Nexus.Dial("lowpass4",{
+let lowpass4 = new Nexus.Dial("lowpass4",{
   "interaction": "vertical",
-  'size': [60,60]
+  'size': [60,60],
+  'value': 0.0001
 })
 
-power3.colorize("accent","#f11")
-power3.colorize("fill","#555")
-gain3.colorize("accent","#f11")
-gain3.colorize("fill","#555")
-freq3.colorize("accent","#f11")
-freq3.colorize("fill","#555")
+power4.colorize("accent","blue")
+power4.colorize("fill","#555")
+gain4.colorize("accent","blue")
+gain4.colorize("fill","#555")
+lowpass4.colorize("accent","blue")
+lowpass4.colorize("fill","#555")
+
+
 
 // document.style.backgroundColor = "#000";
 
@@ -98,10 +109,11 @@ let osc2;
 let osc3;
 let osc4;
 let bandWidth;
+let filter4;
 
 function setup(){
 
-  createCanvas(640, 200);
+  createCanvas(870, 225);
   // background(255, 0, 0);
 
 
@@ -190,7 +202,8 @@ function setup(){
     osc4 = new p5.Noise();
     osc4.setType("pink");
     filter4 = new p5.LowPass();
-    // noise.connect(filter4);
+    osc4.disconnect();
+    osc4.connect(filter4);
 
     osc4.amp(0);
 
@@ -210,13 +223,10 @@ function setup(){
       osc4.amp(v)
     });
 
-    // freq4.on('change',function(v) {
-      // console.log(v)
-      // osc4.freq(v)
-
-    noise4.on('change',function(v) {
-      map(v,0,1,100,15000);
-      console.log(v)
+    lowpass4.on('change',function(v) {
+      let cutoff = map(v,0,1,100,20000);
+      console.log(cutoff);
+      filter4.freq(cutoff);
     });
 
 
@@ -233,7 +243,49 @@ function draw(){
   // console.log(spectrum);  //this is working
     for (let i = 0; i< spectrum.length; i++){ // i will loop from 0 to the length of the array [i]
       let amp = spectrum[i]; //this takes the amplitude numbers and puts them into the array [i]
-      let y = map(amp, 0, 255, 200, 25);
-      line(i, height, i, y);
+      let y = map(amp, 0, 255, 225, 25);
+      let x = map(i,0,spectrum.length,0,width);
+      line(x, height, x, y);
     }
+
+    // for (let i = 0; i < width; i+= width/10){
+    //   let frequency = map(i, 0, width, 20, 20000);
+    //   noStroke();
+    //   textSize(12);
+    //   text((frequency) + " Hz", i, height - 20);
+    // }
+
+    textSize(15);
+    fill(255);
+    noStroke();
+    text("20 Hz", 5,20);
+
+    textSize(15);
+    noStroke();
+    text("3000 Hz", 100,20);
+
+    textSize(15);
+    noStroke();
+    text("6000 Hz", 205,20);
+
+    textSize(15);
+    noStroke();
+    text("9000 Hz", 320,20);
+
+    textSize(15);
+    noStroke();
+    text("12000 Hz", 420,20);
+
+    textSize(15);
+    noStroke();
+    text("15000 Hz", 530,20);
+
+    textSize(15);
+    noStroke();
+    text("18000 Hz", 635,20);
+
+    textSize(15);
+    noStroke();
+    text("20000 Hz", 710, 20);
+
 }
